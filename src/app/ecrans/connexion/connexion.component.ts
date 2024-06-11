@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -18,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class ConnexionComponent {
   formBuilder: FormBuilder = inject(FormBuilder);
+
 
   formulaire: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
