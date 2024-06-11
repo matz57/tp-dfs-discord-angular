@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -9,30 +8,24 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-connexion',
+  selector: 'app-inscription',
   standalone: true,
-  imports: [
-    MatInputModule,
-    MatButtonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterLink,
-  ],
-  templateUrl: './connexion.component.html',
-  styleUrl: './connexion.component.scss',
+  imports: [MatInputModule, MatButtonModule, FormsModule, ReactiveFormsModule],
+  templateUrl: './inscription.component.html',
+  styleUrl: './inscription.component.scss',
 })
-export class ConnexionComponent {
+export class InscriptionComponent {
   formBuilder: FormBuilder = inject(FormBuilder);
 
   formulaire: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
+    confirmationPassword: ['', [Validators.required]],
   });
 
-  onConnexion() {
+  onInscription() {
     if (this.formulaire.valid) {
       console.log(this.formulaire.value);
     }

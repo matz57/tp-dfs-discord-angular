@@ -2,20 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { Serveur } from '../../models/serveur.type';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-principal',
   standalone: true,
-  imports: [MatIconModule, RouterLink],
+  imports: [MatIconModule, RouterLink, MatTooltipModule],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.scss',
 })
 export class PrincipalComponent {
   http: HttpClient = inject(HttpClient);
+  listeServeur: Serveur[] = [];
 
   ngOnInit() {
     this.http
-      .get('http://localhost:3000/serveur')
-      .subscribe((listeServeur) => console.log(listeServeur));
+      .get<Serveur[]>('http://localhost:3000/serveur')
+      .subscribe((listeServeur) => (this.listeServeur = listeServeur));
   }
 }

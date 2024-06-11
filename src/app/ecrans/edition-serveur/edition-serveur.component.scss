@@ -1,7 +1,11 @@
 form {
+  .actions {
+    display: flex;
 
-    button[type="submit"] {
-        margin-top: 2em;
-        width: 200px;
+    button {
+      margin-top: 2em;
+      margin-right: 2em;
+      width: 200px;
     }
+  }
 }
