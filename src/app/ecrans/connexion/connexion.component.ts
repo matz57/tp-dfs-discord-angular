@@ -9,7 +9,8 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -27,6 +28,8 @@ import { RouterLink } from '@angular/router';
 export class ConnexionComponent {
   formBuilder: FormBuilder = inject(FormBuilder);
   http = inject(HttpClient);
+  router: Router = inject(Router);
+  snackBar: MatSnackBar = inject(MatSnackBar);
 
   formulaire: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
@@ -36,8 +39,16 @@ export class ConnexionComponent {
   onConnexion() {
     if (this.formulaire.valid) {
       this.http
-        .post('http://localhost:3000/login', this.formulaire.value)
-        .subscribe((jwt) => console.log(jwt));
+        .post('http://localhost:3000/login', this.formulaire.value, {
+          responseType: 'text',
+        })
+        .subscribe((jwt) => {
+          localStorage.setItem('jwt', jwt);
+          this.snackBar.open('Vous êtes connecté', undefined, {
+            duration: 3000,
+          });
+          this.router.navigateByUrl('/principal');
+        });
     }
   }
 }
