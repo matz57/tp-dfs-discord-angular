@@ -17,8 +17,14 @@ export class PrincipalComponent {
   listeServeur: Serveur[] = [];
 
   ngOnInit() {
-    this.http
-      .get<Serveur[]>('http://localhost:3000/serveur')
-      .subscribe((listeServeur) => (this.listeServeur = listeServeur));
+    const jwt = localStorage.getItem('jwt');
+
+    if (jwt) {
+      this.http
+        .get<Serveur[]>('http://localhost:3000/serveur', {
+          headers: { Authorization: 'Bearer ' + jwt },
+        })
+        .subscribe((listeServeur) => (this.listeServeur = listeServeur));
+    }
   }
 }
