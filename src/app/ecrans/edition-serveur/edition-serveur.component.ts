@@ -43,7 +43,7 @@ export class EditionServeurComponent {
   snackBar: MatSnackBar = inject(MatSnackBar);
 
   dataSource: any;
-  
+
   @ViewChild(MatSort) sort?: MatSort;
 
   ngOnInit() {
@@ -56,7 +56,7 @@ export class EditionServeurComponent {
         })
         .subscribe((listeServeur) => {
           this.dataSource = new MatTableDataSource(listeServeur);
-          
+
           if (this.sort) {
             this.dataSource.sort = this.sort;
           }
@@ -80,6 +80,25 @@ export class EditionServeurComponent {
         .post('http://localhost:3000/serveur', this.formulaire.value)
         .subscribe((nouveauServeur) => {
           this.snackBar.open('Le serveur a bien été ajouté', undefined, {
+            duration: 3000,
+          });
+
+          this.router.navigateByUrl('/principal');
+        });
+    }
+  }
+
+  onRejoindreServeur(serveur: Serveur) {
+    const jwt = localStorage.getItem('jwt');
+
+    if (jwt) {
+      
+      this.http
+        .post('http://localhost:3000/rejoindre-serveur', serveur, {
+          headers: { Authorization: 'Bearer ' + jwt },
+        })
+        .subscribe((nouveauServeur) => {
+          this.snackBar.open('Vous avez rejoins le serveur', undefined, {
             duration: 3000,
           });
 
