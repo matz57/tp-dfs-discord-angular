@@ -51,9 +51,7 @@ export class EditionServeurComponent {
 
     if (jwt) {
       this.http
-        .get<Serveur[]>('http://localhost:3000/serveur', {
-          headers: { Authorization: 'Bearer ' + jwt },
-        })
+        .get<Serveur[]>('http://localhost:3000/serveur')
         .subscribe((listeServeur) => {
           this.dataSource = new MatTableDataSource(listeServeur);
 
@@ -92,11 +90,8 @@ export class EditionServeurComponent {
     const jwt = localStorage.getItem('jwt');
 
     if (jwt) {
-      
       this.http
-        .post('http://localhost:3000/rejoindre-serveur', serveur, {
-          headers: { Authorization: 'Bearer ' + jwt },
-        })
+        .post('http://localhost:3000/rejoindre-serveur', serveur)
         .subscribe((nouveauServeur) => {
           this.snackBar.open('Vous avez rejoins le serveur', undefined, {
             duration: 3000,

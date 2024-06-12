@@ -21,9 +21,7 @@ export class PrincipalComponent {
 
     if (jwt) {
       this.http
-        .get<Serveur[]>('http://localhost:3000/serveur/possede', {
-          headers: { Authorization: 'Bearer ' + jwt },
-        })
+        .get<Serveur[]>('http://localhost:3000/serveur/possede')
         .subscribe((listeServeur) => (this.listeServeur = listeServeur));
     }
   }
