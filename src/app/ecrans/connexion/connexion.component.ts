@@ -26,6 +26,7 @@ import { RouterLink } from '@angular/router';
 })
 export class ConnexionComponent {
   formBuilder: FormBuilder = inject(FormBuilder);
+  http = inject(HttpClient);
 
   formulaire: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
@@ -34,7 +35,9 @@ export class ConnexionComponent {
 
   onConnexion() {
     if (this.formulaire.valid) {
-      console.log(this.formulaire.value);
+      this.http
+        .post('http://localhost:3000/login', this.formulaire.value)
+        .subscribe((jwt) => console.log(jwt));
     }
   }
 }

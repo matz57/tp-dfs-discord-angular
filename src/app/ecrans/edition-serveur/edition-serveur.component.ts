@@ -23,7 +23,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './edition-serveur.component.html',
   styleUrl: './edition-serveur.component.scss',
