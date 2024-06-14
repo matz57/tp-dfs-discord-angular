@@ -1,0 +1,72 @@
+h3 {
+    color: #8e9297;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+form {
+    background-color: #2f3136;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input {
+    color: #dcddde;
+    background-color: #40444b;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: #40444b!important;
+}
+
+button {
+    background-color: #7289da;
+    color: #dcddde;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #677bc4;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #2f3136;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #2c2f33;
+    color: #dcddde;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+li a{
+    color: #7289DA;
+    text-decoration: none;
+}
+
+li:hover {
+    background-color: #40444b;
+}
+
+li:last-child {
+    border-bottom: none;
+}

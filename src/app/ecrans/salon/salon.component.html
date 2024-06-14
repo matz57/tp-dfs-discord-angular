@@ -1,0 +1,17 @@
+<div>
+    <h3>Salons</h3>
+    <form [formGroup]="formulaire" (ngSubmit)="onAjoutSalon()">
+      <mat-form-field>
+        <mat-label>Nom du salon</mat-label>
+        <input matInput formControlName="nom" required />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Ajouter Salon</button>
+    </form>
+    <ul>
+      <li *ngFor="let salon of salons" [routerLink]="['/message', salon._id]">{{ salon.nom }}</li>
+    </ul>
+  </div>

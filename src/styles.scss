@@ -19,3 +19,21 @@ body {
     margin-top: 1em;
   }
 }
+
+.retour-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #7289da;
+  color: #dcddde;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.retour-link:hover {
+  background-color: #677bc4;
+  cursor: pointer;
+}

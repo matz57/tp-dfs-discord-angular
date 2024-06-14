@@ -81,6 +81,8 @@ export class EditionServeurComponent {
             duration: 3000,
           });
 
+          this.onRejoindreServeur(nouveauServeur as Serveur);
+
           this.router.navigateByUrl('/principal');
         });
     }

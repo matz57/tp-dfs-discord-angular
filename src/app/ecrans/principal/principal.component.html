@@ -11,7 +11,7 @@
       </div>
 
       @for (serveur of listeServeur; track serveur._id) {
-
+      <a routerLink="/serveur/{{serveur._id}}">
       <div
         class="serveur"
         [matTooltip]="serveur.nom"
@@ -19,7 +19,7 @@
       >
         <img [attr.src]="serveur.urlLogo" />
       </div>
-
+      </a>
       }
     </div>
     <div class="info-profil">

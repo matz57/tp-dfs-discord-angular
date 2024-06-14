@@ -6,6 +6,9 @@ import { PrincipalComponent } from './ecrans/principal/principal.component';
 import { EditionServeurComponent } from './ecrans/edition-serveur/edition-serveur.component';
 import { InscriptionComponent } from './ecrans/inscription/inscription.component';
 import { userGuard } from './guards/user.guard';
+import { ServeurComponent } from './ecrans/serveur/serveur.component';
+import { SalonComponent } from './ecrans/salon/salon.component';
+import { MessageComponent } from './ecrans/message/message.component';
 
 export const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
@@ -21,6 +24,9 @@ export const routes: Routes = [
     component: EditionServeurComponent,
     canActivate: [userGuard],
   },
+  {path: 'serveur/:id_serveur', component: ServeurComponent, canActivate: [userGuard]},
+  {path: 'message/:id_salon', component: MessageComponent, canActivate: [userGuard]},
+  {path: 'salon', component: SalonComponent, canActivate: [userGuard]},
   { path: '', redirectTo: 'principal', pathMatch: 'full' },
   { path: '**', component: Page404Component },
 ];

@@ -1,0 +1,45 @@
+$text-color: #FFFFFF;
+$secondary-text-color: #B9BBBE;
+$highlight-color: #7289DA;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.colonne {
+  flex: 1;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+h2 {
+  color: $highlight-color;
+  margin-bottom: 10px;
+}
+
+p {
+  color: $secondary-text-color;
+  line-height: 1.5;
+}
+
+img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+div {
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,15 @@
+<a class="retour-link" routerLink="/principal">Retour</a>
+<div class="container">
+  <div class="colonne" *ngIf="serveur">
+    <img [src]="serveur.urlLogo" alt="Logo du serveur" />
+    <h2>{{ serveur.nom }}</h2>
+    <p>{{ serveur.description }}</p>
+    <p>Public: {{ serveur.public ? 'Oui' : 'Non' }}</p>
+  </div>
+  <div class="colonne">
+    <app-salon [serveurId]="serveurId"></app-salon>
+  </div>
+  <div *ngIf="!serveur">
+    <p>Chargement...</p>
+  </div>
+</div>
